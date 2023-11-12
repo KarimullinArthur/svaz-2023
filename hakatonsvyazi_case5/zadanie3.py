@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 
-URL = input("Input your URL channel\nlike https://t.me/s/linux_gram\n> ")
+URL = input("Вставьте ссылку на свой телеграм-канал \n пример: https://t.me/s/linux_gram\n> ")
 
 if URL[13] != 's':
     URL = URL[:12] + '/s' + URL[12:]
@@ -13,7 +13,7 @@ if URL[13] != 's':
 try:
     resp = requests.get(URL).text
 except:
-    print("Invalid URL")
+    print("Неправильный URL")
     sys.exit(1)
 
 soup = bs(resp, "html.parser")
