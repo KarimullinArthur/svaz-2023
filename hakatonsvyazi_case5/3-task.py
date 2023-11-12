@@ -28,5 +28,20 @@ print('---\n')
 posts = list(posts)
 
 find_word = input("How word we are finding?\n> ")
-count = ''.join(str(post) for post in posts).find(find_word)
-print(f"Слово {find_word} встречается {count} раз")
+
+
+def stats(string_):
+    freq = {}
+    res = []
+    for word in string_.split():
+        freq[word] = freq[word] + 1 if word in freq else 1
+        if freq[word] > 1 and word not in res:
+            res.append(word)
+    if len(res) == 0:
+        return None
+    return res if len(res) > 1 else res.pop()
+
+
+string = ''.join(str(post) for post in posts)
+
+print(f"Слово {find_word} встречается {len(stats(string))} раз")
