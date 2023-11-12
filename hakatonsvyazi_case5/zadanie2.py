@@ -13,6 +13,12 @@ def get_json(url):
     response = requests.get(url)
     return response.json()
 
+def get_id_from_url(url):
+    screen_name = url.split('/')[-1]
+    resolve_url = f'https://api.vk.com/method/utils.resolveScreenName?screen_name={screen_name}&access_token={token}&v=5.131'
+    resolve_info = get_json(resolve_url)
+    return str(resolve_info['response']['object_id'])
+
 def get_keywords(texts):
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(texts)
@@ -37,20 +43,24 @@ file = open("infoVK/info" + user_key + ".txt", "w+")
 print("Эта программа получает информацию о группе и пользователе посредством VK_API и записывает её в текстовый файл. Также она может создавать облако  ключевых слов, используемых пользователем и группой...")
 
 # Получение информации о группе
-print("Пожалуйста, введите ID группы для получения информации:")
-group_id = str(input())
-group_url = f'https://api.vk.com/method/groups.getById?group_id={str(int(group_id)*-1)}&access_token={token}&v=5.131'
-group_info = get_json(group_url)
+print("Пожалуйста, введите ссылку на группу для получения информации:")
+group_url = str(input())
+group_id = get_id_from_url(group_url)
+print(group_id)
+group_info_url = f'https://api.vk.com/method/groups.getById?group_id={group_id}&access_token={token}&v=5.131'
+group_info = get_json(group_info_url)
 
 
 # Получение информации о пользователе
-print("Пожалуйста, введите ID пользователя для получения информации:")
-user_id = str(input())
-user_url = f'https://api.vk.com/method/users.get?user_ids={user_id}&access_token={token}&v=5.131'
-user_info = get_json(user_url)
+print("Пожалуйста, введите ссылку на пользователя для получения информации:")
+user_url = str(input())
+user_id = get_id_from_url(user_url)
+print(user_id)
+user_info_url = f'https://api.vk.com/method/users.get?user_ids={user_id}&access_token={token}&v=5.131'
+user_info = get_json(user_info_url)
 
 
-#Запись инфо о группе и пользователе...
+#Запись инфо о группе и пользователе...https://vk.com/denkorni
 # Запись информации о группе и пользователе в файл
 file.write("Информация о группе:\n")
 file.write(json.dumps(group_info, ensure_ascii=False, indent=4))  # ensure_ascii=False для корректного отображения кириллицы
@@ -61,7 +71,7 @@ file.close()
 # Получение постов пользователя и группы
 posts_url_user = f'https://api.vk.com/method/wall.get?owner_id={user_id}&access_token={token}&v=5.131'
 posts_info_user = get_json(posts_url_user)
-posts_url_group = f'https://api.vk.com/method/wall.get?owner_id={group_id}&access_token={token}&v=5.131'
+posts_url_group = f'https://api.vk.com/method/wall.get?owner_id={str(int(group_id)*-1)}&access_token={token}&v=5.131'
 posts_info_group = get_json(posts_url_group)
 
 
