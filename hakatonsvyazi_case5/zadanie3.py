@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 
-URL = input("Вставьте ссылку на свой телеграм-канал \n пример: https://t.me/s/linux_gram\n> ")
+URL = input("Вставьте ссылку на свой телеграм-канал \nпример: https://t.me/s/linux_gram\n> ")
 
 if URL[13] != 's':
     URL = URL[:12] + '/s' + URL[12:]
@@ -27,7 +27,7 @@ for post in posts:
 print('---\n')
 posts = list(posts)
 
-find_word = input("How word we are finding?\n> ")
+find_word = input("Какое слово мы ищём?\n> ")
 
 
 def stats(string_):
