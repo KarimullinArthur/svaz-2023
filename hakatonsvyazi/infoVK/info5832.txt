@@ -1,0 +1,31 @@
+Информация о группе:
+{
+    "response": [
+        {
+            "id": 29534144,
+            "name": "Лентач",
+            "screen_name": "lentach",
+            "is_closed": 0,
+            "type": "page",
+            "is_admin": 0,
+            "is_member": 1,
+            "is_advertiser": 0,
+            "photo_50": "https://sun6-20.userapi.com/s/v1/ig2/NJX63LTNdmXBUW_yFpBmQvMEfOGi8J73kH_ptJt5pHgGfNKw-E3ULV-dqFqUDK4U0aMDFtW_rrlFIXoGyz-fnXPW.jpg?size=50x50&quality=96&crop=6,5,1098,1098&ava=1",
+            "photo_100": "https://sun6-20.userapi.com/s/v1/ig2/iRiMLOH5QMnQGdCkBe3R-a5KX4sNFxmFCQlWTUBCvz9l-1IQYFQ-NX6oCj7Y50cnEWH2pegb4f3e2JiuHh4Gp-e3.jpg?size=100x100&quality=96&crop=6,5,1098,1098&ava=1",
+            "photo_200": "https://sun6-20.userapi.com/s/v1/ig2/XWj74PoM5DFm-fuKJLr5PuHWBwIRzCqeoYQCWq1lNrHNyeajTejepe3ugPfocQ38G3R6c-9W0tt71Us_rS1y6YkX.jpg?size=200x200&quality=96&crop=6,5,1098,1098&ava=1"
+        }
+    ]
+}
+
+Информация о пользователе:
+{
+    "response": [
+        {
+            "id": 497266651,
+            "first_name": "Денис",
+            "last_name": "Корнилов",
+            "can_access_closed": true,
+            "is_closed": false
+        }
+    ]
+}
