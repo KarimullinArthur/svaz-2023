@@ -24,9 +24,9 @@ for post in posts:
     print('---')
     print(post.text)
 
-print('---')
+print('---\n')
 posts = list(posts)
 
-find_word = input("Какое слово ищем?\n> ")
+find_word = input("How word we are finding?\n> ")
 count = ''.join(str(post) for post in posts).find(find_word)
 print(f"Слово {find_word} встречается {count} раз")
